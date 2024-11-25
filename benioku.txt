@@ -1,0 +1,2 @@
+Program "mingw32-make" kodu ile çalıştırılır.
+C harfi çaprazlamayı, M harfi mutasyonu ifade etmektedir.
