@@ -1,3 +1,11 @@
+/**
+* @file kromozom.cpp
+* @description kromozomlar üzerinde işlem yaptırır
+* @course ikinci öğretim C grubu
+* @assignment 1.ödev
+* @date 04.11.2024
+* @author Atalay Muhsin Baysal atalay.baysal@ogr.sakarya.edu.tr G231210036
+*/
 #include <kromozom.hpp>
 #include <fstream>
 #include <iostream>
@@ -6,25 +14,6 @@
 #include <sstream>
 using namespace std;
 
-void kromozom::HafizaTazeleme(){
-    ofstream yazici("Dnagecici.txt");
-    if(!yazici)
-    cout<<"yazici acilamadi"<<endl;
-    kromodugum* geciciKr=ilkKromozom;
-    while(geciciKr!=nullptr){
-        gendugum* geciciGen=geciciKr->ilkgen;
-        while(geciciGen!=nullptr){
-            yazici<<geciciGen->genHarf<<' ';
-            if(geciciGen->sonraki==nullptr)
-                yazici<<endl;
-                geciciGen=geciciGen->sonraki;
-            }
-        geciciKr=geciciKr->sonrakikromo;
-    }
-    yazici.close();
-    remove("Dna.txt");
-    rename("Dnagecici.txt","Dna.txt");
-}
 void kromozom::Caprazlama(int index1,int index2){
     kromodugum* birinciKromozom= ilkKromozom;
     kromodugum* ikinciKromozom=ilkKromozom;
@@ -93,10 +82,10 @@ void kromozom::Caprazlama(int index1,int index2){
 
         }
         else{
-            if(i<ceil(static_cast<double>(birinciKromozom->gensayisi)/2)){
+            if(i<ceil(static_cast<double>(ikinciKromozom->gensayisi)/2)){
                 yeni2->harfEkle(genIkinci->genHarf);
             }
-            if(i>ceil(static_cast<double>(birinciKromozom->gensayisi)/2)){
+            if(i>ceil(static_cast<double>(ikinciKromozom->gensayisi)/2)){
                 yeni1->harfEkle(genIkinci->genHarf);
             }
             genIkinci=genIkinci->sonraki;

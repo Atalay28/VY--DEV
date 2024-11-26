@@ -1,3 +1,12 @@
+/**
+* @file main.cpp
+* @description programı çalıştırır.
+* @course ikinci öğretim C grubu
+* @assignment 1.ödev
+* @date 04.11.2024
+* @author Atalay Muhsin Baysal atalay.baysal@ogr.sakarya.edu.tr G231210036
+*/
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -24,7 +33,7 @@ int main()
     while (getline(dosya,satirmetni)){
         kromodugum* yeniKromozom = new kromodugum(kromozomIndex++);
         for (char harf: satirmetni){
-            if(harf==' '){}/*HARF YOKSA İŞLEM YOK*/
+            if(harf==' '){}
             else{
             yeniKromozom->harfEkle(harf);
             }
@@ -41,17 +50,6 @@ int main()
         dosya.close();
     do
     {
-        
-   
-        //SONDA ARADAKİ KISIM SİLİNECEK----
-        cout<<"Hepsi"<<endl;
-        kromodugum* simdikiKromozom=ilkKromozom;
-        while (simdikiKromozom !=nullptr){
-            simdikiKromozom->ekranaYazdir();
-            simdikiKromozom=simdikiKromozom->sonrakikromo;
-        }
-        delete simdikiKromozom;
-        //---------------------------------
 
         cout<<"1-Caprazlama"<<endl<<"2-Mutasyon"<<endl<<"3-Otomatik islemler"<<endl<<"4-Ekrana yaz"<<endl<<"5-cikis"<<endl<<"Yapmak istediginiz numarayi giriniz: ";
         cin>>yapilacakIslem;
@@ -68,7 +66,6 @@ int main()
                 cout<<"Caprazlamak istediginiz ikinici kromozomun indexini giriniz: ";
                 cin>>index2;
                 krobj.Caprazlama(index1,index2);
-                //krobj.HafizaTazeleme();
                 cout<<"Islem tamamlanmistir"<<endl;
                 cout<<"-----------------------------------------------------"<<endl;
                 break;
@@ -85,7 +82,6 @@ int main()
                 cout<<"Mutasyona ugramasini istediginiz gen'in indexini giriniz:";
                 cin>>genIndex;
                 krobj.Mutasyon(kromozomIndex,genIndex);
-                //krobj.HafizaTazeleme();
                 cout<<"Islem tamamlanmistir"<<endl;
                 cout<<"-----------------------------------------------------"<<endl;
                 break;
@@ -107,10 +103,8 @@ int main()
 
                         if(islem=='C'){
                             krobj.Caprazlama(islem1,islem2);
-                            //krobj.HafizaTazeleme();
                         }else if(islem=='M'){
                             krobj.Mutasyon(islem1,islem2);
-                            //krobj.HafizaTazeleme();
                         }
                         else{
                             cout<<i<<". satir hatali"<<endl;

@@ -1,3 +1,11 @@
+/**
+* @file kromodugum.cpp
+* @description kromozomları düğüm yapar.
+* @course ikinci öğretim C grubu
+* @assignment 1.ödev
+* @date 04.11.2024
+* @author Atalay Muhsin Baysal atalay.baysal@ogr.sakarya.edu.tr G231210036
+*/
 #include <kromodugum.hpp>
 #include <iostream>
 using namespace std;
@@ -27,18 +35,4 @@ void kromodugum::harfEkle(char harf){
         gecici->sonraki=yeniHarf;
         yeniHarf->onceki=gecici;
     }
-}
-
-//alttaki silinecek
-void kromodugum::ekranaYazdir() const{
-    gendugum* simdikiHarf=ilkgen;
-    while (simdikiHarf !=nullptr){
-        cout<<"("<<simdikiHarf->genindex<<": "<<simdikiHarf->genHarf<<")";
-        simdikiHarf=simdikiHarf->sonraki;
-    }
-    cout<<endl;
-}
-
-kromodugum::~kromodugum(){
-    
 }
